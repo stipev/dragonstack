@@ -1,0 +1,21 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./bin/server",
+    "dev": "nodemon ./bin/server",
+    "configure": "bash ./bin/configure_db.sh",
+    "configure-dev": "npm run configure && npm run dev"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^1.19.0"
+  },
+  "dependencies": {
+    "express": "^4.16.4",
+    "pg": "^7.11.0"
+  }
+}
