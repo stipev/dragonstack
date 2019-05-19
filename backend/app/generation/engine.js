@@ -14,21 +14,20 @@ class GenerationEngine {
   }
   buildNewGeneration() {
     const generation = new Generation();
+    const dragon = generation.newDragon();
     GenerationTable.storeGeneration(generation)
       .then(({ generationId }) => {
         this.generation = generation;
         this.generation.generationId = generationId;
-        console.log("new generation: ", this.generation);
-        this.timer = setTimeout(
-          () => this.buildNewGeneration(),
-          this.generation.expiration.getTime() - Date.now()
-        );
+        //console.log("new generation: ", this.generation);
+        this.timer = setTimeout(() => {
+          dragon.generationId = generationId;
+          this.buildNewGeneration();
+        }, this.generation.expiration.getTime() - Date.now());
       })
       .catch(error => {
         console.log(error);
       });
-
-    //console.log("new dragon: ", this.generation.newDragon());
   }
 }
 
