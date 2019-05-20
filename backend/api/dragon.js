@@ -1,6 +1,7 @@
 const { Router } = require("express");
 const DragonTable = require("../app/dragon/table.js");
-const DragonTraitTable = require("../app/dragonTrait/table.js");
+//nije potriba
+//const DragonTraitTable = require("../app/dragonTrait/table.js");
 
 const router = new Router();
 
@@ -10,17 +11,16 @@ router.get("/new", (req, res, next) => {
   DragonTable.storeDragon(dragon)
     .then(dragonId => {
       dragon.dragonId = dragonId;
-      dragon.traits.forEach(({ traitType, traitValue }) => {
-        // const traitType = trait.traitType;
-        // const traitValue = trait.traitValue;
-        DragonTraitTable.storeDragonTrait({
-          dragonId,
-          traitType,
-          traitValue
-        })
-          .then()
-          .catch(error => console.error(error));
-      });
+      //KOD koji po tutoriali mora ići u dragon table.js radi bolje komunikacije izmedu komponenti ali i ovako radi
+      // dragon.traits.forEach(({ traitType, traitValue }) => {
+      //   DragonTraitTable.storeDragonTrait({
+      //     dragonId,
+      //     traitType,
+      //     traitValue
+      //   })
+      //     .then()
+      //     .catch(error => console.error(error));
+      // });
       res.json({ dragon: dragon });
     })
     .catch(error => {

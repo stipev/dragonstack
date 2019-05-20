@@ -10,7 +10,7 @@ class DragonTraitTable {
             'INSERT INTO dragonTrait("traitId","dragonId") VALUES($1,$2)',
             [traitId, dragonId],
             (error, response) => {
-              if (error) reject(error);
+              if (error) return reject(error);
               resolve();
             }
           );
