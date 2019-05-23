@@ -7,7 +7,7 @@ const DEFAULT_DRAGON = {
   birthdate: " ",
   nickname: " ",
   generationId: " ",
-  traits: [{ traitType: " ", traitValue: " " }]
+  traits: []
 };
 
 class Dragon extends React.Component {
@@ -15,7 +15,7 @@ class Dragon extends React.Component {
     dragon: DEFAULT_DRAGON
   };
   componentDidMount() {
-    this.fetchDragon();
+    //this.fetchDragon();
   }
 
   fetchDragon = () => {
@@ -32,9 +32,10 @@ class Dragon extends React.Component {
 
   //getDragon() {}
   render() {
+    //console.log(this.state.dragon);
     return (
       <div>
-        <Button onClick={() => this.fetchDragon()}>New dragon</Button>
+        <Button onClick={this.fetchDragon}>New dragon</Button>
         <DragonAvatar dragon={this.state.dragon} />
       </div>
     );
