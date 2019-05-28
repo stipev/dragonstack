@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
 const DEFAULT_GENERATION = {
   generationId: " ",
@@ -57,6 +58,7 @@ class Generation extends Component {
   };
 
   render() {
+    console.log("this.props", this.props);
     const { generation } = this.state;
     return (
       <div>
@@ -67,4 +69,6 @@ class Generation extends Component {
   }
 }
 
-export default Generation;
+const componentConnector = connect();
+
+export default componentConnector(Generation);

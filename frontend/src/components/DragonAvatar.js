@@ -63,7 +63,7 @@ class DragonAvatar extends Component {
 
   render() {
     const { generationId, dragonId, traits } = this.props.dragon;
-    console.log(this.props.dragon);
+    //console.log(this.props.dragon);
     return (
       <div>
         <h3>Dragon</h3>
